@@ -8,13 +8,13 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- ESTILOS PERSONALIZADOS EMBUTIDOS -->
+    <!-- ESTILOS PERSONALIZADOS -->
     @yield('styles')
     @stack('styles')
 
@@ -22,21 +22,37 @@
         :root {
             --dourado: #FFD700;
         }
+
         body {
             background: #000;
             color: white;
             font-family: 'Cinzel', serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+
+        main {
+            flex: 1;
+        }
+
         .glass-effect {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); /* Safari */
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .text-gold { color: var(--dourado); }
-        .title-glow {
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6),
-                         0 0 40px rgba(255, 215, 0, 0.3);
+
+        .text-gold {
+            color: var(--dourado);
         }
+
+        .title-glow {
+            text-shadow:
+                0 0 10px rgba(255, 215, 0, 0.6),
+                0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
         .btn-journey {
             background: linear-gradient(135deg, #6c5ce7, #a29bfe);
             color: white;
@@ -44,34 +60,107 @@
             font-weight: 600;
             padding: 10px 20px;
             border-radius: 8px;
+            transition: all 0.3s ease;
         }
+
         .btn-journey:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(108, 92, 231, 0.4);
         }
+
         .particles-container {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1; pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
+
+        /* Botão de áudio responsivo */
         #audio-toggle {
-            position: fixed; bottom: 20px; right: 20px;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
             z-index: 1000;
-            background: rgba(255,255,255,0.1);
-            width: 60px; height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             cursor: pointer;
+            font-size: 18px;
         }
-        #audio-toggle i { font-size: 24px; color: #a29bfe; }
-        #audio-toggle.active i { color: var(--dourado); }
+
+        #audio-toggle i {
+            color: #a29bfe;
+        }
+
+        #audio-toggle.active i {
+            color: var(--dourado);
+        }
+
         #audio-status {
-            position: fixed; bottom: 85px; right: 20px;
-            background: rgba(0,0,0,0.7); color: white;
-            padding: 8px 12px; border-radius: 8px;
+            position: fixed;
+            bottom: 75px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 14px;
             display: none;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        /* Responsividade para vídeos */
+        .ratio-16x9 video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Ajuste para telas muito pequenas */
+        @media (max-width: 575.98px) {
+            .title-glow {
+                font-size: 1.5rem !important;
+                text-align: center;
+            }
+
+            .btn-journey,
+            .btn-outline-secondary {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            #audio-toggle {
+                width: 44px;
+                height: 44px;
+                bottom: 10px;
+                right: 10px;
+            }
+
+            #audio-status {
+                bottom: 60px;
+                right: 10px;
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+        }
+
+        /* Garantir que o conteúdo não fique escondido atrás do botão de áudio */
+        @media (max-height: 600px) {
+            main {
+                padding-bottom: 80px;
+            }
         }
     </style>
 </head>
@@ -82,6 +171,7 @@
 <audio id="bgMusic" loop class="d-none">
     <source src="{{ asset('audio/ambient-dark.mp3') }}" type="audio/mpeg">
 </audio>
+
 <div id="audio-status">Carregando...</div>
 <div id="audio-toggle" title="Ativar som">
     <i class="fas fa-volume-up"></i>
@@ -91,7 +181,7 @@
     @yield('content')
 </main>
 
-<!-- JS do Vite REMOVIDO completamente -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
@@ -132,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Ativar áudio com qualquer interação do usuário
     ['click', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
         document.addEventListener(evt, activateAudio, { once: true });
     });
@@ -140,4 +231,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </body>
 </html>
-

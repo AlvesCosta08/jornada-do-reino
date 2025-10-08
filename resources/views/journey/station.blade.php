@@ -3,21 +3,21 @@
 @section('title', $station['title'])
 
 @section('content')
-<div class="container py-4 station-content">
+<div class="container py-3 py-md-4 station-content">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
 
             <!-- Cabeçalho com Progresso -->
-            <div class="d-flex justify-content-between align-items-center mb-4"
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mb-3 mb-md-4"
                  data-aos="fade-down">
-                <h1 class="h2 text-gold title-glow">{{ $station['title'] }}</h1>
-                <span class="badge bg-primary fs-6 glow-animation">
+                <h1 class="h3 h2-md text-gold title-glow text-center text-sm-start">{{ $station['title'] }}</h1>
+                <span class="badge bg-primary fs-6 mt-2 mt-sm-0 glow-animation">
                     Estação {{ $stationNumber }} de {{ $totalStations }}
                 </span>
             </div>
 
             <!-- Barra de Progresso Animada -->
-            <div class="progress-journey mb-4" data-aos="fade-right">
+            <div class="progress-journey mb-3 mb-md-4" data-aos="fade-right">
                 <div class="progress-bar"
                      style="width: {{ ($stationNumber / $totalStations) * 100 }}%">
                 </div>
@@ -29,25 +29,25 @@
                  data-aos-delay="300">
 
                 <!-- Conteúdo Principal -->
-                <div class="text-center mb-4" data-aos="fade-up" data-aos-delay="500">
-                    <p class="fs-5">{{ $station['content'] }}</p>
+                <div class="text-center mb-3 mb-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <p class="fs-6 fs-md-5">{{ $station['content'] }}</p>
                 </div>
 
                 <!-- Versículo -->
                 @if(isset($station['verse']))
-                <div class="glass-effect rounded-3 p-4 mb-4 scripture-text"
+                <div class="glass-effect rounded-3 p-3 p-md-4 mb-3 mb-md-4 scripture-text"
                      data-aos="fade-up"
                      data-aos-delay="600">
-                    <p class="fst-italic mb-0">{{ $station['verse'] }}</p>
+                    <p class="fst-italic mb-0 fs-6 fs-md-5">{{ $station['verse'] }}</p>
                 </div>
                 @endif
 
                 <!-- Vídeo local após o versículo -->
                 @if(isset($station['video_file']))
-                <div class="glass-effect rounded-3 p-4 mb-4"
+                <div class="glass-effect rounded-3 p-3 p-md-4 mb-3 mb-md-4"
                      data-aos="fade-up"
                      data-aos-delay="650">
-                    <h4 class="h5 mb-3 text-gold">🎥 Assista ao Vídeo</h4>
+                    <h4 class="h6 h5-md mb-2 mb-md-3 text-gold text-center">🎥 Assista ao Vídeo</h4>
                     <div class="ratio ratio-16x9">
                         <video controls preload="metadata" class="w-100 h-100" style="object-fit: contain; background: #000; border-radius: 8px;">
                             <source src="{{ asset('video/' . $station['video_file']) }}" type="video/mp4">
@@ -58,17 +58,17 @@
                 @endif
 
                 <!-- Pergunta Interativa -->
-                <div class="glass-effect rounded-3 p-4 mb-4"
+                <div class="glass-effect rounded-3 p-3 p-md-4 mb-3 mb-md-4"
                      data-aos="fade-up"
                      data-aos-delay="700">
-                    <h4 class="h5 mb-3 text-gold">{{ $station['question'] }}</h4>
+                    <h4 class="h6 h5-md mb-2 mb-md-3 text-gold text-center">{{ $station['question'] }}</h4>
 
                     <div class="row g-2">
                         @foreach($station['options'] as $index => $option)
                         <div class="col-12"
                              data-aos="fade-up"
                              data-aos-delay="{{ 800 + ($index * 100) }}">
-                            <button class="btn btn-outline-light w-100 text-start py-3 option-btn mb-2"
+                            <button class="btn btn-outline-light w-100 text-start py-2 py-md-3 option-btn"
                                     onclick="selectOption(this, {{ $stationNumber }})"
                                     data-option="{{ $index }}">
                                 {{ $option }}
@@ -79,19 +79,19 @@
                 </div>
 
                 <!-- Navegação -->
-                <div class="d-flex justify-content-between"
+                <div class="d-flex flex-column flex-md-row justify-content-between gap-2"
                      data-aos="fade-up"
                      data-aos-delay="1200">
 
                     <!-- Botão Voltar -->
                     @if($stationNumber > 1)
                     <a href="{{ route('station.show', $stationNumber - 1) }}"
-                       class="btn btn-outline-secondary">
+                       class="btn btn-outline-secondary w-100">
                         ← Estação Anterior
                     </a>
                     @else
                     <a href="{{ route('journey.start') }}"
-                       class="btn btn-outline-secondary">
+                       class="btn btn-outline-secondary w-100">
                         ← Início da Jornada
                     </a>
                     @endif
@@ -99,7 +99,7 @@
                     <!-- Botão Avançar ou Finalizar -->
                     @if($stationNumber < $totalStations)
                     <a href="{{ route('station.show', $stationNumber + 1) }}"
-                       class="btn btn-journey"
+                       class="btn btn-journey w-100"
                        id="nextBtn"
                        style="display: none;"
                        onclick="animateTransition(this.href)">
@@ -107,7 +107,7 @@
                     </a>
                     @else
                     <a href="{{ route('journey.final') }}"
-                    class="btn btn-success"
+                    class="btn btn-success w-100"
                     id="prayerBtn"
                     style="display: none;">
                         🙏 Finalizar Jornada
@@ -238,12 +238,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const stationContent = document.querySelector('.station-content');
     if (stationContent) {
         stationContent.style.opacity = '0';
-        stationContent.style.transform = 'translateY(50px)';
+        stationContent.style.transform = 'translateY(20px)';
         setTimeout(() => {
-            stationContent.style.transition = 'all 1s ease-out';
+            stationContent.style.transition = 'all 0.8s ease-out';
             stationContent.style.opacity = '1';
             stationContent.style.transform = 'translateY(0)';
-        }, 300);
+        }, 200);
     }
 
     const title = document.querySelector('.title-glow');
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
 .scripture-text {
     font-family: 'Georgia', serif;
-    line-height: 1.8;
+    line-height: 1.7;
     position: relative;
     border-left: 3px solid var(--dourado);
 }
@@ -269,12 +269,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .option-btn {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    font-size: 0.95rem;
 }
 
 .progress-journey {
-    height: 8px;
+    height: 6px;
     background-color: #2c2c2c;
-    border-radius: 4px;
+    border-radius: 3px;
     overflow: hidden;
 }
 
@@ -282,6 +283,27 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 100%;
     background: linear-gradient(90deg, #d4af37, #f9d71c);
     transition: width 0.6s ease;
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 575.98px) {
+    .title-glow {
+        font-size: 1.4rem !important;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .option-btn {
+        font-size: 0.9rem;
+        padding: 8px 12px !important;
+    }
+
+    .progress-journey {
+        height: 5px;
+    }
 }
 </style>
 @endsection
