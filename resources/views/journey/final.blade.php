@@ -16,25 +16,20 @@
         transform: translate(-50%, -50%);
     "></div>
 
-    <h1 class="display-6 display-md-5 display-lg-4 fw-bold text-center title-glow typewriter mb-3 mb-md-4" id="greeting">
-        Meu filho...
+    <h1 class="display-6 display-md-5 display-lg-4 fw-bold text-center title-glow mb-3 mb-md-4">
+        O Encontro
     </h1>
 
     <div class="text-center mt-3 mt-md-4" style="max-width: 650px; width: 100%;">
-        <p class="message fs-6 fs-md-5" id="message1" style="opacity: 0; line-height: 1.6; display: none;">
-            Eu te vi em cada passo dessa jornada.<br>
-            Vi seu vazio, suas dúvidas, seu desejo por algo mais.
-        </p>
-
-        <p class="message fs-6 fs-md-5" id="message2" style="display: none; opacity: 0; line-height: 1.6;">
-            Eu te amei antes mesmo de você existir.<br>
-            E hoje, neste exato momento, estou te chamando pelo nome.
-        </p>
-
-        <p class="message fs-6 fs-md-5" id="message3" style="display: none; opacity: 0; line-height: 1.6;">
-            Você quer Me receber?<br>
-            Quer que Eu entre no seu coração e transforme sua vida?
-        </p>
+        <div class="glass-effect rounded-3 p-3 p-md-4">
+            <h4 class="h6 h5-md mb-2 mb-md-3 text-gold">🎥 Assista ao Momento Final</h4>
+            <div class="ratio ratio-16x9">
+                <video controls preload="metadata" class="w-100 h-100" style="object-fit: contain; background: #000; border-radius: 8px;">
+                    <source src="{{ asset('video/encontro-final.mp4') }}" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+        </div>
     </div>
 
     <div id="buttons" class="mt-4 mt-md-5 w-100" style="opacity: 0; max-width: 500px;">
