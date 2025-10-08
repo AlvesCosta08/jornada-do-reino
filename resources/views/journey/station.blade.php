@@ -42,6 +42,23 @@
                 </div>
                 @endif
 
+                <!-- Vídeo após o versículo -->
+                @if(isset($station['video_url']))
+                <div class="glass-effect rounded-3 p-4 mb-4"
+                     data-aos="fade-up"
+                     data-aos-delay="650">
+                    <h4 class="h5 mb-3 text-gold">🎥 Assista ao Vídeo</h4>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{ $station['video_url'] }}"
+                                title="Vídeo da Estação {{ $stationNumber }}"
+                                frameborder="0"
+                                allowfullscreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                        </iframe>
+                    </div>
+                </div>
+                @endif
+
                 <!-- Pergunta Interativa -->
                 <div class="glass-effect rounded-3 p-4 mb-4"
                      data-aos="fade-up"
