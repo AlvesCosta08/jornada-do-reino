@@ -61,7 +61,7 @@
                 <div class="glass-effect rounded-3 p-3 p-md-4 mb-3 mb-md-4"
                      data-aos="fade-up"
                      data-aos-delay="700">
-                    <h4 class="h6 h5-md mb-2 mb-md-3 text-gold text-center">{{ $station['question'] }}</h4>
+                    <h4 class="h5 mb-2 mb-md-3 text-gold text-center">{{ $station['question'] }}</h4>
 
                     <div class="row g-2">
                         @foreach($station['options'] as $index => $option)

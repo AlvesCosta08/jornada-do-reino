@@ -20,6 +20,7 @@
         O Encontro
     </h1>
 
+    <!-- Vídeo Local no lugar das mensagens -->
     <div class="text-center mt-3 mt-md-4" style="max-width: 650px; width: 100%;">
         <div class="glass-effect rounded-3 p-3 p-md-4">
             <h4 class="h6 h5-md mb-2 mb-md-3 text-gold">🎥 Assista ao Momento Final</h4>
@@ -62,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const bgMusic = document.getElementById('bgMusic');
     if (bgMusic) {
         window.originalAudio = bgMusic.querySelector('source').src;
-        const hopeAudio = "{{ asset('audio/hope-theme.mp4') }}".replace('.mp4', '.mp3'); // fallback
         bgMusic.querySelector('source').src = "{{ asset('audio/hope-theme.mp3') }}";
         bgMusic.load();
         setTimeout(() => {
@@ -71,20 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
+    // Animação do feixe de luz
     gsap.to('#light-beam', { opacity: 0.7, duration: 3, ease: "power1.inOut" });
 
-    function showMessage(id) {
-        const el = document.getElementById(id);
-        el.style.display = 'block';
-        gsap.to(el, { opacity: 1, y: 0, duration: 1.2 });
-    }
-
-    setTimeout(() => showMessage('message1'), 1000);
-    setTimeout(() => showMessage('message2'), 5000);
+    // Torna os botões visíveis após um pequeno delay (opcional)
     setTimeout(() => {
-        showMessage('message3');
         gsap.to('#buttons', { opacity: 1, duration: 1 });
-    }, 9000);
+    }, 2000);
 });
 
 function accept() {
@@ -139,6 +132,10 @@ function later() {
     .btn-lg {
         font-size: 1rem !important;
         padding: 0.6rem 1rem !important;
+    }
+
+    .ratio-16x9 {
+        height: 200px !important;
     }
 }
 </style>

@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-/* Garantir que o botão não fique muito largo em mobile */
 @media (max-width: 767.98px) {
     .btn-journey.btn-lg {
         font-size: 1.1rem !important;

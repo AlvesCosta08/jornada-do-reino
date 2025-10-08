@@ -39,7 +39,7 @@
         .glass-effect {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px); /* Safari */
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -222,7 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Ativar áudio com qualquer interação do usuário
     ['click', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
         document.addEventListener(evt, activateAudio, { once: true });
     });
