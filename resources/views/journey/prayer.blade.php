@@ -3,33 +3,44 @@
 @section('title', 'Pedido de Oração')
 
 @section('content')
-<div class="container py-5">
+<div class="container py-4 py-md-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <div class="glass-effect rounded-3 p-5 text-center">
-                <h2 class="text-gold mb-4">🙏 Pedido de Oração</h2>
-                <p class="mb-4">Seu "sim" ecoou nos céus. Como podemos orar por você?</p>
+            <div class="glass-effect rounded-3 p-4 p-md-5 text-center">
+                <h2 class="text-gold mb-3 mb-md-4 fs-3 fs-md-2">🙏 Pedido de Oração</h2>
+                <p class="mb-3 mb-md-4 fs-6 fs-md-5">Seu "sim" ecoou nos céus. Como podemos orar por você?</p>
 
                 <form id="prayerForm">
-                    <div class="mb-3 text-start">
-                        <label for="name" class="form-label">Nome (opcional)</label>
-                        <input type="text" class="form-control bg-transparent text-white border-0 rounded-3"
-                               id="name" placeholder="Seu nome">
+                    <div class="mb-3 mb-md-4 text-start">
+                        <label for="name" class="form-label fs-6 fs-md-5">Nome (opcional)</label>
+                        <input type="text"
+                               class="form-control bg-transparent text-white border-0 rounded-3 py-2 px-3"
+                               id="name"
+                               placeholder="Seu nome">
                     </div>
-                    <div class="mb-3 text-start">
-                        <label for="phone" class="form-label">Telefone / WhatsApp (opcional)</label>
-                        <input type="tel" class="form-control bg-transparent text-white border-0 rounded-3"
-                               id="phone" placeholder="(00) 90000-0000">
+                    <div class="mb-3 mb-md-4 text-start">
+                        <label for="phone" class="form-label fs-6 fs-md-5">Telefone / WhatsApp (opcional)</label>
+                        <input type="tel"
+                               class="form-control bg-transparent text-white border-0 rounded-3 py-2 px-3"
+                               id="phone"
+                               placeholder="(00) 90000-0000">
                     </div>
-                    <div class="mb-4 text-start">
-                        <label for="request" class="form-label">Pedido de oração *</label>
-                        <textarea class="form-control bg-transparent text-white border-0 rounded-3"
-                                  id="request" rows="4" placeholder="Escreva seu pedido..." required></textarea>
+                    <div class="mb-3 mb-md-4 text-start">
+                        <label for="request" class="form-label fs-6 fs-md-5">Pedido de oração *</label>
+                        <textarea class="form-control bg-transparent text-white border-0 rounded-3 py-2 px-3"
+                                  id="request"
+                                  rows="4"
+                                  placeholder="Escreva seu pedido..."
+                                  required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-journey w-100">Enviar Pedido</button>
+                    <button type="submit" class="btn btn-journey w-100 py-2 py-md-3 fs-6 fs-md-5">
+                        Enviar Pedido
+                    </button>
                 </form>
 
-                <a href="{{ route('home') }}" class="btn btn-outline-light mt-3">← Voltar ao Encontro</a>
+                <a href="{{ route('journey.final') }}" class="btn btn-outline-light mt-3 mt-md-4 w-100 w-md-auto">
+                    ← Voltar ao Encontro
+                </a>
             </div>
         </div>
     </div>

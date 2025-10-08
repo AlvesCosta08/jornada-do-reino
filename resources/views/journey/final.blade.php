@@ -3,12 +3,12 @@
 @section('title', 'O Encontro')
 
 @section('content')
-<div class="container-fluid d-flex flex-column align-items-center justify-content-center min-vh-100 px-3">
+<div class="container-fluid d-flex flex-column align-items-center justify-content-center min-vh-100 px-3 px-md-4">
     <div id="light-beam" class="position-absolute rounded-circle" style="
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
         background: radial-gradient(circle, rgba(108,92,231,0.4) 0%, transparent 70%);
-        filter: blur(60px);
+        filter: blur(50px);
         z-index: -1;
         opacity: 0;
         top: 50%;
@@ -16,42 +16,48 @@
         transform: translate(-50%, -50%);
     "></div>
 
-    <h1 class="display-4 fw-bold text-center title-glow typewriter" id="greeting">
+    <h1 class="display-6 display-md-5 display-lg-4 fw-bold text-center title-glow typewriter mb-3 mb-md-4" id="greeting">
         Meu filho...
     </h1>
 
-    <div class="text-center mt-4" style="max-width: 700px;">
-        <p class="message fs-4" id="message1" style="opacity: 0; line-height: 1.7;">
+    <div class="text-center mt-3 mt-md-4" style="max-width: 650px; width: 100%;">
+        <p class="message fs-6 fs-md-5" id="message1" style="opacity: 0; line-height: 1.6; display: none;">
             Eu te vi em cada passo dessa jornada.<br>
             Vi seu vazio, suas dúvidas, seu desejo por algo mais.
         </p>
 
-        <p class="message fs-4" id="message2" style="display: none; opacity: 0; line-height: 1.7;">
+        <p class="message fs-6 fs-md-5" id="message2" style="display: none; opacity: 0; line-height: 1.6;">
             Eu te amei antes mesmo de você existir.<br>
             E hoje, neste exato momento, estou te chamando pelo nome.
         </p>
 
-        <p class="message fs-4" id="message3" style="display: none; opacity: 0; line-height: 1.7;">
+        <p class="message fs-6 fs-md-5" id="message3" style="display: none; opacity: 0; line-height: 1.6;">
             Você quer Me receber?<br>
             Quer que Eu entre no seu coração e transforme sua vida?
         </p>
     </div>
 
-    <div id="buttons" class="mt-5" style="opacity: 0;">
-        <button class="btn btn-outline-light btn-lg px-4 py-2 me-3" onclick="accept()">
-            Sim, Senhor. Eu quero.
-        </button>
-        <button class="btn btn-outline-light btn-lg px-4 py-2" onclick="later()">
-            Preciso de mais tempo.
-        </button>
+    <div id="buttons" class="mt-4 mt-md-5 w-100" style="opacity: 0; max-width: 500px;">
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+            <button class="btn btn-outline-light btn-lg px-4 py-2 w-100" onclick="accept()">
+                Sim, Senhor. Eu quero.
+            </button>
+            <button class="btn btn-outline-light btn-lg px-4 py-2 w-100" onclick="later()">
+                Preciso de mais tempo.
+            </button>
+        </div>
     </div>
 
-    <div id="confirmation" class="text-center mt-5" style="display: none;">
-        <p class="lead text-warning fs-2">✨ Seu "sim" ecoou nos céus.</p>
-        <p class="fs-4">Você não está mais sozinho.</p>
-        <div class="mt-4">
-            <a href="{{ route('prayer.request') }}" class="btn btn-light text-dark btn-lg me-2">Pedir oração</a>
-            <a href="https://wa.me/seunumero" target="_blank" class="btn btn-outline-light btn-lg">Conversar com alguém</a>
+    <div id="confirmation" class="text-center mt-4 mt-md-5" style="display: none; max-width: 600px; width: 100%;">
+        <p class="lead text-warning fs-4 fs-md-3">✨ Seu "sim" ecoou nos céus.</p>
+        <p class="fs-6 fs-md-5">Você não está mais sozinho.</p>
+        <div class="mt-4 d-flex flex-column flex-md-row justify-content-center gap-3">
+            <a href="{{ route('prayer.request') }}" class="btn btn-light text-dark btn-lg w-100">
+                Pedir oração
+            </a>
+            <a href="https://wa.me/seunumero" target="_blank" class="btn btn-outline-light btn-lg w-100">
+                Conversar com alguém
+            </a>
         </div>
     </div>
 </div>
@@ -61,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const bgMusic = document.getElementById('bgMusic');
     if (bgMusic) {
         window.originalAudio = bgMusic.querySelector('source').src;
-        const hopeAudio = "{{ asset('audio/hope-theme.mp3') }}";
-        bgMusic.querySelector('source').src = hopeAudio;
+        const hopeAudio = "{{ asset('audio/hope-theme.mp4') }}".replace('.mp4', '.mp3'); // fallback
+        bgMusic.querySelector('source').src = "{{ asset('audio/hope-theme.mp3') }}";
         bgMusic.load();
         setTimeout(() => {
             bgMusic.volume = 0.15;
@@ -116,4 +122,29 @@ function later() {
     }
 }
 </script>
+
+<style>
+/* Ajustes extras para telas muito pequenas */
+@media (max-width: 575.98px) {
+    #light-beam {
+        width: 200px !important;
+        height: 200px !important;
+        filter: blur(40px) !important;
+    }
+
+    .display-6 {
+        font-size: 1.8rem !important;
+    }
+
+    .fs-6 {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .btn-lg {
+        font-size: 1rem !important;
+        padding: 0.6rem 1rem !important;
+    }
+}
+</style>
 @endsection
