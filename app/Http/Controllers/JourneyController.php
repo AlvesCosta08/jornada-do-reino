@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PrayerRequest;
-use App\Models\JourneyResponse; // 👈 Import essencial
+use App\Models\JourneyResponse;
 use Illuminate\Support\Facades\Validator;
 
 class JourneyController extends Controller
@@ -34,7 +34,8 @@ class JourneyController extends Controller
                     'Em meio à multidão, mesmo cercado de pessoas',
                     'Em todos esses momentos'
                 ],
-                'verse' => '"Ele fez tudo apropriado ao seu tempo. Também pôs no coração do homem o anseio pela eternidade." - Eclesiastes 3:11'
+                'verse' => '"Ele fez tudo apropriado ao seu tempo. Também pôs no coração do homem o anseio pela eternidade." - Eclesiastes 3:11',
+                'video_file' => 'estacao1.mp4'
             ],
             2 => [
                 'title' => 'A Queda e a Separação',
@@ -46,7 +47,8 @@ class JourneyController extends Controller
                     'A influência do mal no mundo',
                     'Ainda estou buscando entender'
                 ],
-                'verse' => '"Pois todos pecaram e estão destituídos da glória de Deus." - Romanos 3:23'
+                'verse' => '"Pois todos pecaram e estão destituídos da glória de Deus." - Romanos 3:23',
+                'video_file' => 'estacao2.mp4'
             ],
             3 => [
                 'title' => 'A Luz na Escuridão',
@@ -58,7 +60,8 @@ class JourneyController extends Controller
                     'Verdade que liberta e transforma',
                     'Amor que preenche todo vazio'
                 ],
-                'verse' => '"Eu sou a luz do mundo. Quem me segue, nunca andará em trevas, mas terá a luz da vida." - João 8:12'
+                'verse' => '"Eu sou a luz do mundo. Quem me segue, nunca andará em trevas, mas terá a luz da vida." - João 8:12',
+                'video_file' => 'estacao3.mp4'
             ]
         ];
 

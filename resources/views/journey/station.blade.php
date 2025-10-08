@@ -42,19 +42,17 @@
                 </div>
                 @endif
 
-                <!-- Vídeo após o versículo -->
-                @if(isset($station['video_url']))
+                <!-- Vídeo local após o versículo -->
+                @if(isset($station['video_file']))
                 <div class="glass-effect rounded-3 p-4 mb-4"
                      data-aos="fade-up"
                      data-aos-delay="650">
                     <h4 class="h5 mb-3 text-gold">🎥 Assista ao Vídeo</h4>
                     <div class="ratio ratio-16x9">
-                        <iframe src="{{ $station['video_url'] }}"
-                                title="Vídeo da Estação {{ $stationNumber }}"
-                                frameborder="0"
-                                allowfullscreen
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                        </iframe>
+                        <video controls preload="metadata" class="w-100 h-100" style="object-fit: contain; background: #000; border-radius: 8px;">
+                            <source src="{{ asset('video/' . $station['video_file']) }}" type="video/mp4">
+                            Seu navegador não suporta o elemento de vídeo.
+                        </video>
                     </div>
                 </div>
                 @endif
@@ -183,12 +181,6 @@ function animateTransition(nextUrl) {
         window.location.href = nextUrl;
     }, 800);
     return false;
-}
-
-// Mostrar Modal de Oração
-function showPrayerModal() {
-    const prayerModal = new bootstrap.Modal(document.getElementById('prayerModal'));
-    prayerModal.show();
 }
 
 // ✅ Envio do Pedido de Oração via AJAX
