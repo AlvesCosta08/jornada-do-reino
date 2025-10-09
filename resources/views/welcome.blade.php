@@ -4,108 +4,92 @@
 
 @section('content')
 <div class="container-fluid min-vh-100 d-flex align-items-center position-relative overflow-hidden">
-    <!-- Efeito de fundo -->
+    <!-- Fundo com partículas animadas -->
     <div class="particles-bg position-absolute w-100 h-100" style="
-        background: radial-gradient(ellipse at center, rgba(108,92,231,0.1) 0%, transparent 70%);
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         z-index: -1;
     "></div>
 
     <div class="row w-100 justify-content-center">
-        <div class="col-12 col-md-9 col-lg-7 text-center">
+        <div class="col-12 col-lg-8 text-center">
 
-            <!-- Cabeçalho Principal -->
-            <div class="mb-4 mb-md-5" data-aos="fade-down">
-                <h1 class="display-2 display-md-1 fw-bold text-gold title-glow mb-3">
-                    <i class="fas fa-church me-2"></i>
-                    Jornada do Reino
+            <!-- Storytelling Intro -->
+            <div class="mb-5" data-aos="fade-up">
+                <h1 class="display-3 fw-bold text-white mb-4">
+                    Você está pronto para <span class="text-gold">descobrir o propósito eterno da sua vida?</span>
                 </h1>
-                <p class="lead fs-4 fs-md-3 opacity-90" data-aos="fade-up" data-aos-delay="200">
-                    Descubra o propósito eterno da sua vida
+                <p class="lead fs-4 text-light opacity-90">
+                    A <strong>Jornada do Reino</strong> é uma experiência transformadora que te levará a um encontro profundo com Deus.
                 </p>
             </div>
 
-            <!-- Card de Chamada Principal -->
-            <div class="glass-effect rounded-5 p-4 p-md-5 mb-4 mb-md-5"
-                 data-aos="zoom-in"
-                 data-aos-delay="300"
-                 style="position: relative; overflow: hidden;">
+            <!-- Jornada Visual -->
+            <div class="journey-path mb-5" data-aos="zoom-in-up">
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="journey-step text-center mx-2">
+                        <div class="step-icon bg-gold text-white rounded-circle d-flex align-items-center justify-content-center mb-2">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <small class="text-light">Chamado</small>
+                    </div>
+                    <div class="journey-arrow text-light mx-1"><i class="fas fa-arrow-right"></i></div>
+                    <div class="journey-step text-center mx-2">
+                        <div class="step-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center mb-2">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <small class="text-light">Encontro</small>
+                    </div>
+                    <div class="journey-arrow text-light mx-1"><i class="fas fa-arrow-right"></i></div>
+                    <div class="journey-step text-center mx-2">
+                        <div class="step-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center mb-2">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <small class="text-light">Transformação</small>
+                    </div>
+                </div>
+            </div>
 
-                <p class="fs-5 fs-md-4 fst-italic mb-3 mb-md-4 typewriter"
-                   data-aos="fade-up"
-                   data-aos-delay="500">
-                   "Você já se perguntou qual é o sentido de tudo?"
+            <!-- CTA Principal -->
+            <div class="glass-effect rounded-5 p-4 p-md-5 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <p class="fs-5 fst-italic text-white mb-4 typewriter">
+                    “Toda grande jornada começa com um único passo... o seu está aqui.”
                 </p>
 
-                <a href="{{ route('journey.start') }}"
-                   class="btn btn-journey btn-lg fs-5 fs-md-4 px-4 px-md-5 py-2 py-md-3 mb-3 float-animation"
-                   data-aos="fade-up"
-                   data-aos-delay="700"
-                   style="transform: translateY(0); transition: transform 0.3s;">
-                   <i class="fas fa-rocket me-2"></i>
-                   Começar Minha Jornada
+                <a href="{{ route('journey.start') }}" class="btn btn-journey btn-lg px-5 py-3 fs-5 fw-bold text-white shadow-lg">
+                    <i class="fas fa-rocket me-2"></i> Iniciar Minha Jornada
                 </a>
 
-                <div class="mt-2 mt-md-3" data-aos="fade-up" data-aos-delay="900">
-                    <small class="text-muted d-block">Experiência gratuita • Encontro pessoal com Deus</small>
-                    <small class="text-warning d-block mt-1">✨ Transformação garantida</small>
+                <div class="mt-3">
+                    <small class="text-light d-block">✅ 100% gratuito • ✅ Encontro pessoal com Deus • ✨ Transformação garantida</small>
                 </div>
             </div>
 
-            <!-- Características da Jornada -->
-            <div class="row g-3 g-md-4 mt-3 mt-md-4">
-
-                <!-- Característica 1 -->
-                <div class="col-12 col-md-4"
-                     data-aos="fade-right"
-                     data-aos-delay="100">
-                    <div class="glass-effect rounded-4 p-3 p-md-4 h-100 interactive-card hover-lift"
-                         style="cursor: pointer; transition: transform 0.3s ease;">
-                        <div class="fs-1 mb-2 mb-md-3 float-animation">
-                            <i class="fas fa-compass text-gold"></i>
+            <!-- Testemunhos Reais -->
+            <div class="mt-5" data-aos="fade-up" data-aos-delay="500">
+                <h4 class="text-gold mb-4 fs-4">💬 Depoimentos de Transformação</h4>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6">
+                        <div class="card bg-transparent border-light rounded-4 p-4 text-start">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://via.placeholder.com/50" alt="Ana" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="text-white mb-0">Ana Silva</h6>
+                                    <small class="text-muted">São Paulo, SP</small>
+                                </div>
+                            </div>
+                            <p class="text-light fst-italic mb-0">“Minha vida mudou completamente. A Jornada me trouxe paz e direção.”</p>
                         </div>
-                        <h5 class="fw-bold mb-2 fs-6 fs-md-5">Navegação Guiada</h5>
-                        <p class="small opacity-75 mb-0">Passo a passo por estações transformadoras</p>
                     </div>
-                </div>
-
-                <!-- Característica 2 -->
-                <div class="col-12 col-md-4"
-                     data-aos="fade-up"
-                     data-aos-delay="200">
-                    <div class="glass-effect rounded-4 p-3 p-md-4 h-100 interactive-card hover-lift"
-                         style="cursor: pointer; transition: transform 0.3s ease;">
-                        <div class="fs-1 mb-2 mb-md-3 float-animation" style="animation-delay: 0.3s;">
-                            <i class="fas fa-heart text-danger"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2 fs-6 fs-md-5">Encontro Pessoal</h5>
-                        <p class="small opacity-75 mb-0">Experiência profunda com Deus</p>
-                    </div>
-                </div>
-
-                <!-- Característica 3 -->
-                <div class="col-12 col-md-4"
-                     data-aos="fade-left"
-                     data-aos-delay="300">
-                    <div class="glass-effect rounded-4 p-3 p-md-4 h-100 interactive-card hover-lift"
-                         style="cursor: pointer; transition: transform 0.3s ease;">
-                        <div class="fs-1 mb-2 mb-md-3 float-animation" style="animation-delay: 0.6s;">
-                            <i class="fas fa-bullseye text-success"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2 fs-6 fs-md-5">Propósito Eterno</h5>
-                        <p class="small opacity-75 mb-0">Descubra o verdadeiro sentido da vida</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Depoimentos (opcional) -->
-            <div class="mt-5" data-aos="fade-up" data-aos-delay="400">
-                <h4 class="text-gold mb-3 fs-5 fs-md-4">💬 O que dizem sobre a Jornada</h4>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-10">
-                        <div class="glass-effect rounded-3 p-3 p-md-4">
-                            <p class="fst-italic mb-2 fs-6 fs-md-5">"Minha vida mudou completamente. Obrigado por me mostrar o caminho."</p>
-                            <small class="text-muted">— Ana, participante da Jornada</small>
+                    <div class="col-12 col-md-6">
+                        <div class="card bg-transparent border-light rounded-4 p-4 text-start">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="https://via.placeholder.com/50" alt="Pedro" class="rounded-circle me-3">
+                                <div>
+                                    <h6 class="text-white mb-0">Pedro Oliveira</h6>
+                                    <small class="text-muted">Belo Horizonte, MG</small>
+                                </div>
+                            </div>
+                            <p class="text-light fst-italic mb-0">“Foi um encontro real com Deus. Recomendo a todos que buscam sentido.”</p>
                         </div>
                     </div>
                 </div>
@@ -115,26 +99,13 @@
     </div>
 </div>
 
-{{-- Botão flutuante inteligente --}}
+{{-- Botão Flutuante com Animação --}}
 @if(auth()->check())
-    <a href="{{ route('admin.prayer-requests') }}"
-       class="btn btn-sm btn-outline-light rounded-circle position-fixed pulse-animation"
-       style="bottom: 20px; right: 20px; z-index: 1050; opacity: 0.85; backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s;"
-       title="Área Administrativa"
-       data-bs-toggle="tooltip"
-       data-bs-placement="left">
+    <a href="{{ route('admin.prayer-requests') }}" class="btn btn-sm btn-outline-light rounded-circle position-fixed pulse-animation" style="bottom: 20px; right: 20px; z-index: 1050;">
         <i class="fas fa-crown"></i>
     </a>
 @else
-    @php
-        $loginUrl = route('login', [], false) ?: '/login';
-    @endphp
-    <a href="{{ $loginUrl }}"
-       class="btn btn-sm btn-outline-light rounded-circle position-fixed pulse-animation"
-       style="bottom: 20px; right: 20px; z-index: 1050; opacity: 0.85; backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all 0.3s;"
-       title="Login Administrativo"
-       data-bs-toggle="tooltip"
-       data-bs-placement="left">
+    <a href="{{ route('login') }}" class="btn btn-sm btn-outline-light rounded-circle position-fixed pulse-animation" style="bottom: 20px; right: 20px; z-index: 1050;">
         <i class="fas fa-lock"></i>
     </a>
 @endif
@@ -142,87 +113,50 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Ativar tooltips do Bootstrap
+    // Ativar tooltips
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        if (typeof bootstrap !== 'undefined') {
-            new bootstrap.Tooltip(tooltipTriggerEl);
-        }
+        new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Animação do título
-    const title = document.querySelector('.title-glow');
-    if (title) {
-        setInterval(() => {
-            title.classList.toggle('text-glow');
-        }, 4000);
-    }
-
-    // Animação dos ícones flutuantes
-    const icons = document.querySelectorAll('.float-animation');
-    icons.forEach((icon, index) => {
-        icon.style.animationDelay = `${index * 0.3}s`;
+    // Animação de progresso visual
+    const steps = document.querySelectorAll('.journey-step');
+    steps.forEach((step, index) => {
+        setTimeout(() => {
+            step.classList.add('active');
+        }, index * 300);
     });
-
-    // Efeito hover nos cards
-    const cards = document.querySelectorAll('.interactive-card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.classList.add('hover-lift');
-            gsap.to(card, { y: -10, duration: 0.3, ease: "power2.out" });
-        });
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('hover-lift');
-            gsap.to(card, { y: 0, duration: 0.3, ease: "power2.out" });
-        });
-    });
-
-    // Botão flutuante com pulsação
-    const floatingBtn = document.querySelector('.pulse-animation');
-    if (floatingBtn) {
-        setInterval(() => {
-            floatingBtn.classList.toggle('pulse');
-        }, 2000);
-    }
 });
 </script>
 @endpush
 
 <style>
-.hover-lift {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3) !important;
-}
-
-.pulse {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* Ajustes para telas pequenas */
-@media (max-width: 575.98px) {
-    .display-2 {
-        font-size: 2.2rem !important;
-    }
-
-    .btn-journey.btn-lg {
-        font-size: 1.1rem !important;
-        padding: 0.7rem 1.2rem !important;
-    }
-
+    .bg-gold { background-color: #d4af37 !important; }
+    .text-gold { color: #d4af37 !important; }
+    .journey-step { opacity: 0.5; transition: all 0.3s ease; }
+    .journey-step.active { opacity: 1; transform: scale(1.1); }
+    .step-icon { width: 60px; height: 60px; font-size: 1.5rem; }
     .glass-effect {
-        padding: 1rem !important;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
-
-    .interactive-card {
-        padding: 0.8rem !important;
+    .btn-journey {
+        background: linear-gradient(45deg, #d4af37, #b8860b);
+        border: none;
     }
-}
+    .btn-journey:hover {
+        background: linear-gradient(45deg, #b8860b, #d4af37);
+        transform: translateY(-3px);
+    }
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
 </style>
 
 @endsection
