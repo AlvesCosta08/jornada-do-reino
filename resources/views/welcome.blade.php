@@ -7,11 +7,11 @@
     <!-- Vídeo de Fundo -->
     <div class="video-bg position-absolute top-0 start-0 w-100 h-100">
         <video class="w-100 h-100 object-fit-cover" autoplay muted loop>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-forest-path-under-the-trees-3972-large.mp" type="video/mp4">
+            <source src="{{ asset('video/terra.mp4') }}" type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
         <!-- Overlay escuro -->
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-75"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></div>
     </div>
 
     <!-- Conteúdo Central -->
