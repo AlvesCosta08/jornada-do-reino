@@ -8,7 +8,7 @@
     <div class="video-bg position-absolute top-0 start-0 w-100 h-100">
         <video class="w-100 h-100 object-fit-cover" autoplay muted loop>
             <source src="{{ asset('video/terra.mp4') }}" type="video/mp4">
-            Seu navegador não suporta vídeos.
+
         </video>
         <!-- Overlay escuro -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></div>
