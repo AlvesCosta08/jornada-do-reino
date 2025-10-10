@@ -8,7 +8,7 @@
     <div class="video-bg position-absolute top-0 start-0 w-100 h-100">
         <!-- Vídeo -->
         <video class="w-100 h-100" style="object-fit: cover;" autoplay muted loop playsinline>
-            <source src="{{ asset('video/terra.mp4') }}" type="video/mp4">
+            <source src="./video/terra.mp4" type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
         <!-- Overlay escuro (único e sobre o vídeo) -->
