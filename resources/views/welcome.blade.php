@@ -6,19 +6,16 @@
 <div class="position-relative min-vh-100 d-flex align-items-center justify-content-center overflow-hidden">
     <!-- Vídeo de Fundo -->
     <div class="video-bg position-absolute top-0 start-0 w-100 h-100">
-    <div class="position-absolute top-0 start-0 w-100 h-100">
+        <!-- Vídeo -->
         <video class="w-100 h-100" style="object-fit: cover;" autoplay muted loop playsinline>
             <source src="{{ asset('video/terra.mp4') }}" type="video/mp4">
             Seu navegador não suporta vídeos.
         </video>
-        <!-- Overlay escuro -->
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></div>
-    </div>
-        <!-- Overlay escuro -->
+        <!-- Overlay escuro (único e sobre o vídeo) -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-70"></div>
     </div>
 
-    <!-- Conteúdo Central -->
+    <!-- Conteúdo Central (z-index maior que o overlay) -->
     <div class="container text-center text-white z-index-10 position-relative" data-aos="fade-up">
         <h1 class="display-4 display-md-3 fw-bold mb-4">
             Você já se perguntou <span class="text-gold">qual é o verdadeiro sentido da sua vida?</span>
@@ -53,11 +50,11 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Ativar tooltips
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
-        new bootstrap.Tooltip(tooltipTriggerEl);
-    });
+    // Ativar tooltips (se necessário)
+    // const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    // tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+    //     new bootstrap.Tooltip(tooltipTriggerEl);
+    // });
 });
 </script>
 @endpush
@@ -82,7 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
         50% { transform: scale(1.1); }
         100% { transform: scale(1); }
     }
-    .z-index-10 { z-index: 10; }
+    .z-index-10 { z-index: 10; } /* Certifique-se que este é maior que o z-index do overlay se necessário */
+    /* Garantir que o container do vídeo não tenha problemas */
+    .video-bg {
+        z-index: 1; /* Menor que o conteúdo central */
+    }
+    .video-bg video {
+        z-index: 1; /* O vídeo em si */
+    }
+    .video-bg .bg-dark { /* Overlay */
+        z-index: 2; /* Sobre o vídeo, mas sob o conteúdo central */
+    }
 </style>
 
 @endsection
